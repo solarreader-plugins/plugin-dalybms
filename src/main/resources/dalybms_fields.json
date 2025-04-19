@@ -1,0 +1,262 @@
+[
+  {
+    "command": "90",
+    "name": "0x90",
+    "maxErrorThreshold": 2,
+    "errorSuspensionTimeSeconds": 60,
+    "propertyFieldList": [
+      {
+        "fieldName": "Batteriespannung",
+        "fieldType": "U16_BIG_ENDIAN",
+        "expression": "value * 0.1",
+        "offset": 0,
+        "length": 2,
+        "note": "Cumulative total voltage",
+        "unit": "0.1 V"
+      },
+      {
+        "fieldName": "Spannung_Entladen",
+        "fieldType": "U16_BIG_ENDIAN",
+        "expression": "value * 0.1",
+        "offset": 2,
+        "length": 2,
+        "note": "Gather total voltage",
+        "unit": "0.1 V"
+      },
+      {
+        "fieldName": "Ampere",
+        "fieldType": "U16_BIG_ENDIAN",
+        "expression": "(value - 30000) * 0.1",
+        "offset": 4,
+        "length": 2,
+        "note": "Current (30000 Offset)",
+        "unit": "0.1 A"
+      },
+      {
+        "fieldName": "SOC",
+        "fieldType": "U16_BIG_ENDIAN",
+        "expression": "value * 0.1",
+        "offset": 6,
+        "length": 2,
+        "note": "SOC",
+        "unit": "0.1%"
+      }
+    ],
+    "providerPropertyType": "COMMAND"
+  },
+  {
+    "command": "91",
+    "name": "0x91",
+    "maxErrorThreshold": 2,
+    "errorSuspensionTimeSeconds": 60,
+    "propertyFieldList": [
+      {
+        "fieldName": "Max_Spannung",
+        "fieldType": "U16_BIG_ENDIAN",
+        "expression": "value * 0.001",
+        "offset": 0,
+        "length": 2,
+        "note": "Maximum cell voltage value",
+        "unit": "mV"
+      },
+      {
+        "fieldName": "Max_Spannung_ZellenNr",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 2,
+        "length": 1,
+        "note": "No of cell with Maximum voltage"
+      },
+      {
+        "fieldName": "Min_Spannung",
+        "fieldType": "U16_BIG_ENDIAN",
+        "expression": "value * 0.001",
+        "offset": 3,
+        "length": 2,
+        "note": "Minimum cell voltage value",
+        "unit": "mV"
+      },
+      {
+        "fieldName": "Min_Spannung_ZellenNr",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 5,
+        "length": 1,
+        "note": "No of cell with Minimum voltage"
+      }
+    ],
+    "providerPropertyType": "COMMAND"
+  },
+  {
+    "command": "92",
+    "name": "0x92",
+    "maxErrorThreshold": 2,
+    "errorSuspensionTimeSeconds": 60,
+    "propertyFieldList": [
+      {
+        "fieldName": "Max_Temperatur",
+        "fieldType": "U8",
+        "expression": "value - 40",
+        "offset": 0,
+        "length": 1,
+        "note": "Maximum temperature value (40 Offset)",
+        "unit": "Grad Celsius"
+      },
+      {
+        "fieldName": "MaxTemp_ZellenNr",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 1,
+        "length": 1,
+        "note": "Maximum temperature cell No"
+      },
+      {
+        "fieldName": "Min_Temperatur",
+        "fieldType": "U8",
+        "expression": "value - 40",
+        "offset": 2,
+        "length": 1,
+        "note": "Minimum temperature value (40 Offset)",
+        "unit": "Grad Celsius"
+      },
+      {
+        "fieldName": "MinTemp_ZellenNr",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 3,
+        "length": 1,
+        "note": "Minimum temperature cell No"
+      }
+    ],
+    "providerPropertyType": "COMMAND"
+  },
+  {
+    "command": "93",
+    "name": "0x93",
+    "maxErrorThreshold": 2,
+    "errorSuspensionTimeSeconds": 60,
+    "propertyFieldList": [
+      {
+        "fieldName": "Ladung_Entladung",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 0,
+        "length": 1,
+        "note": "State (0 stationary 1 charge 2 discharge)"
+      },
+      {
+        "fieldName": "Ladung_MOS_Status",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 1,
+        "length": 1,
+        "note": "Charge MOS state"
+      },
+      {
+        "fieldName": "Entladung_MOS_Status",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 2,
+        "length": 1,
+        "note": "Discharge MOS state"
+      },
+      {
+        "fieldName": "BMS_Zyklen",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 3,
+        "length": 1,
+        "note": "BMS life (0~255 cycles)"
+      },
+      {
+        "fieldName": "Ah_Rest",
+        "fieldType": "U32_BIG_ENDIAN",
+        "expression": "value / 1000",
+        "offset": 4,
+        "length": 4,
+        "note": "Remain capacity",
+        "unit": "mAh"
+      }
+    ],
+    "providerPropertyType": "COMMAND"
+  },
+  {
+    "command": "94",
+    "name": "0x94",
+    "maxErrorThreshold": 2,
+    "errorSuspensionTimeSeconds": 60,
+    "propertyFieldList": [
+      {
+        "fieldName": "Zellenanzahl",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 0,
+        "length": 1,
+        "note": "No of battery strings"
+      },
+      {
+        "fieldName": "Anz_TempSensoren",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 1,
+        "length": 1,
+        "note": "No of Temperature sensors"
+      },
+      {
+        "fieldName": "Entladestatus",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 2,
+        "length": 1,
+        "note": "Charger status (0 disconnect 1 access)"
+      },
+      {
+        "fieldName": "Ladestatus",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 3,
+        "length": 1,
+        "note": "Load status (0 disconnect 1 access)"
+      },
+      {
+        "fieldName": "DIOStatus",
+        "fieldType": "U8",
+        "expression": "value",
+        "offset": 4,
+        "length": 1,
+        "note": "DI/DO State"
+      },
+      {
+        "fieldName": "Lade_Entlade_Zyklen",
+        "fieldType": "U16_BIG_ENDIAN",
+        "expression": "value",
+        "offset": 5,
+        "length": 2,
+        "note": "charge/discharge cycles"
+      }
+    ],
+    "providerPropertyType": "COMMAND"
+  },
+  {
+    "name": "Berechnungen",
+    "propertyFieldList": [
+      {
+        "fieldName": "Ladestrom",
+        "expression": "IF(Ampere < 0, ABS(Ampere), 0)"
+      },
+      {
+        "fieldName": "Entladestrom",
+        "expression": "IF(Ampere < 0, 0, ABS(Ampere))"
+      },
+      {
+        "fieldName": "Entladeleistung",
+        "expression": "Ladestrom * Batteriespannung"
+      },
+      {
+        "fieldName": "Ladeleistung",
+        "expression": "Entladestrom * Batteriespannung"
+      }
+    ],
+    "providerPropertyType": "SIMPLE"
+  }
+]
