@@ -242,11 +242,11 @@
     "propertyFieldList": [
       {
         "fieldName": "Ladestrom",
-        "expression": "IF(Ampere < 0, ABS(Ampere), 0)"
+        "expression": "IF(Ampere < 0, 0, ABS(Ampere))"
       },
       {
         "fieldName": "Entladestrom",
-        "expression": "IF(Ampere < 0, 0, ABS(Ampere))"
+        "expression": "IF(Ampere < 0, ABS(Ampere), 0)"
       },
       {
         "fieldName": "Entladeleistung",
