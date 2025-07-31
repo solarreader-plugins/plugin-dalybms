@@ -30,12 +30,10 @@ import de.schnippsche.solarreader.backend.field.PropertyField;
 import de.schnippsche.solarreader.backend.field.PropertyFieldBuilder;
 import de.schnippsche.solarreader.backend.frame.DalyFrame;
 import de.schnippsche.solarreader.backend.protocol.DalyProtocol;
-import de.schnippsche.solarreader.backend.protocol.KnownProtocol;
 import de.schnippsche.solarreader.backend.protocol.Protocol;
 import de.schnippsche.solarreader.backend.provider.AbstractUsbProvider;
 import de.schnippsche.solarreader.backend.provider.CommandProviderProperty;
 import de.schnippsche.solarreader.backend.provider.ProviderProperty;
-import de.schnippsche.solarreader.backend.provider.SupportedInterface;
 import de.schnippsche.solarreader.backend.table.Table;
 import de.schnippsche.solarreader.backend.table.TableCell;
 import de.schnippsche.solarreader.backend.table.TableColumn;
@@ -50,7 +48,6 @@ import de.schnippsche.solarreader.frontend.ui.HtmlInputType;
 import de.schnippsche.solarreader.frontend.ui.HtmlWidth;
 import de.schnippsche.solarreader.frontend.ui.UIInputElementBuilder;
 import de.schnippsche.solarreader.frontend.ui.UIList;
-import de.schnippsche.solarreader.plugin.PluginMetadata;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.MessageFormat;
@@ -68,15 +65,6 @@ import org.tinylog.Logger;
  * BMS. It is primarily used to retrieve battery data such as the number of cells and sensors in the
  * BMS.
  */
-@PluginMetadata(
-    name = "DalyBms",
-    version = "1.0.1",
-    author = "Stefan Töngi",
-    url = "https://github.com/solarreader-plugins/plugin-DalyBms",
-    svgImage = "dalybms.svg",
-    supportedInterfaces = {SupportedInterface.NAMED_USB, SupportedInterface.LISTED_USB},
-    usedProtocol = KnownProtocol.DALY,
-    supports = "Daly BMS")
 public class DalyBms extends AbstractUsbProvider {
   private static final String ENTLADE_WH = "EntladeWh";
   private static final String LADE_WH = "LadeWh";
